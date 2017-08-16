@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import LifecycleCounter from './LifecycleCounter'
+import ComponentGallery from './ComponentGallery'
 import FunctionalComponent from './FunctionalComponent'
 import ClassBasedComponent from './ClassBasedComponent'
 import PureComponent from './PureComponent'
+import SongGallery from './SongGallery'
 
 export default class App extends Component {
   constructor (props) {
@@ -22,16 +23,16 @@ export default class App extends Component {
   renderContent (show) {
     switch (show) {
       case 0:
-        return <LifecycleCounter log />
+        return <SongGallery />
       case 1:
         return (
-          <div style={{backgroundColor: '#ddd'}}>
+          <ComponentGallery>
             <FunctionalComponent />
             <ClassBasedComponent />
-          </div>
+          </ComponentGallery>
         )
       case 2:
-        return <PureComponent log />
+        return <PureComponent />
       default:
         return <p>No content to show</p>
     }
@@ -39,7 +40,7 @@ export default class App extends Component {
   render () {
     return (
       <div>
-        <p>React lifecycle</p>
+        <h1>React lifecycle</h1>
         <button onClick={this.toggleContent}>
           Toggle content
         </button>

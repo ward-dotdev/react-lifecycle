@@ -8,7 +8,7 @@ export default class PureComponent extends React.PureComponent {
     this.state = {
       data: {
         name: 'pure component',
-        description: 'I am a class based component'
+        description: 'I am a pure component.'
       }
     }
   }
@@ -34,7 +34,7 @@ export default class PureComponent extends React.PureComponent {
     this.log('=> updateDescription')
 
     const newData = this.state.data
-    newData.description = 'I am a pure component'
+    newData.description = 'I am also a class based component'
 
     this.setState({data: newData})
   }

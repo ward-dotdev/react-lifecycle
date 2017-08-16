@@ -10,6 +10,7 @@ const TITLE = require('./package.json').name
 module.exports = {
   context: resolve(__dirname, 'src'),
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
     './index'
   ],
