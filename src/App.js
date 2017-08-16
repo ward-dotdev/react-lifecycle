@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import LifecycleCounter from './LifecycleCounter'
+import FunctionalComponent from './FunctionalComponent'
+import ClassBasedComponent from './ClassBasedComponent'
 
 export default class App extends Component {
   constructor (props) {
@@ -16,14 +18,26 @@ export default class App extends Component {
       }
     })
   }
+  renderContent (show) {
+    if (show) {
+      return <LifecycleCounter log />
+    }
+
+    return (
+      <div style={{backgroundColor: '#ddd'}}>
+        <FunctionalComponent />
+        <ClassBasedComponent />
+      </div>
+    )
+  }
   render () {
     return (
       <div>
         <p>React lifecycle</p>
         <button onClick={this.toggleCounter}>
-          {this.state.showCounter ? 'Hide' : 'Show'} counter
+          Toggle content
         </button>
-        {this.state.showCounter && <LifecycleCounter />}
+        {this.renderContent(this.state.showCounter)}
       </div>
     )
   }
