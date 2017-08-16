@@ -36,5 +36,5 @@ module.exports = {
       template: './index.ejs',
       title: TITLE
     })
-  ]
+  ].concat(NODE_ENV === 'development' && new webpack.NamedModulesPlugin())
 }

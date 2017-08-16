@@ -4,30 +4,30 @@ import React, {Component} from 'react'
 export default class LifecycleCounter extends Component {
   constructor (props) {
     super(props)
-    if (props.log) console.log('1 constructor')
+    this.log('1 | constructor')
 
     this.state = {count: 0}
   }
   // invoked once.
   // fires before initial 'render'
   componentWillMount () {
-    this.log('2 componentWillMount')
+    this.log('2 | componentWillMount')
   }
   // good for AJAX: fetch, ajax, or subscriptions.
   // invoked once (client-side only).
   // fires before initial 'render'
   componentDidMount () {
-    this.log('3 componentDidMount')
+    this.log('3 | componentDidMount')
   }
   // invoked every time component is recieves new props.
   // does not before initial 'render'
   componentWillReceiveProps (nextProps) {
-    this.log('4 componentWillReceiveProps')
+    this.log('4 | componentWillReceiveProps')
   }
   // invoked before every update (new props or state).
   // does not fire before initial 'render'.
   shouldComponentUpdate (nextProps, nextState) {
-    this.log('5 componentWillReceiveProps')
+    this.log('5 | componentWillReceiveProps')
 
     return this.state.count !== nextState.count
   }
@@ -35,19 +35,19 @@ export default class LifecycleCounter extends Component {
   // does not fire before initial 'render'.
   // (see componentWillReceiveProps if you need to call setState)
   componentWillUpdate (nextProps, nextState) {
-    this.log('6 shouldComponentUpdate')
+    this.log('6 | shouldComponentUpdate')
   }
   // invoked immediately after DOM updates
   // does not fire after initial 'render'
   componentDidUpdate (prevProps, prevState) {
-    this.log('7 componentDidUpdate')
+    this.log('7 | componentDidUpdate')
   }
   // invoked immediately before a component is unmounted.
   componentWillUnmount () {
-    this.log('8 componentWillUnmount')
+    this.log('8 | componentWillUnmount')
   }
   log = str => {
-    if (this.props.log) console.log(str)
+    if (this.props.log) console.log(`${this.constructor.name} | ${str}`)
   }
   addCount = () => {
     this.log('=> addCount')
@@ -56,7 +56,7 @@ export default class LifecycleCounter extends Component {
     this.setState({count: this.state.count + 1})
   }
   render () {
-    this.log('--- render ---')
+    this.log('render')
 
     return (
       <div style={{backgroundColor: '#ddd'}}>

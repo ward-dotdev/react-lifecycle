@@ -2,42 +2,48 @@ import React, {Component} from 'react'
 import LifecycleCounter from './LifecycleCounter'
 import FunctionalComponent from './FunctionalComponent'
 import ClassBasedComponent from './ClassBasedComponent'
+import PureComponent from './PureComponent'
 
 export default class App extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      showCounter: false
+      shownContent: 0
     }
   }
-  toggleCounter = () => {
-    this.setState(prevState => {
+  toggleContent = () => {
+    this.setState(({shownContent}) => {
       return {
-        showCounter: !prevState.showCounter
+        shownContent: shownContent < 2 ? shownContent + 1 : 0
       }
     })
   }
   renderContent (show) {
-    if (show) {
-      return <LifecycleCounter log />
+    switch (show) {
+      case 0:
+        return <LifecycleCounter log />
+      case 1:
+        return (
+          <div style={{backgroundColor: '#ddd'}}>
+            <FunctionalComponent />
+            <ClassBasedComponent />
+          </div>
+        )
+      case 2:
+        return <PureComponent log />
+      default:
+        return <p>No content to show</p>
     }
-
-    return (
-      <div style={{backgroundColor: '#ddd'}}>
-        <FunctionalComponent />
-        <ClassBasedComponent />
-      </div>
-    )
   }
   render () {
     return (
       <div>
         <p>React lifecycle</p>
-        <button onClick={this.toggleCounter}>
+        <button onClick={this.toggleContent}>
           Toggle content
         </button>
-        {this.renderContent(this.state.showCounter)}
+        {this.renderContent(this.state.shownContent)}
       </div>
     )
   }
