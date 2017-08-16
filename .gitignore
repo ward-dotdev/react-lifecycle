@@ -1,0 +1,20 @@
+# dependencies
+node_modules
+
+# production
+build
+
+# testing
+coverage
+
+#config
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+stats.json
+
+# misc
+.DS_Store

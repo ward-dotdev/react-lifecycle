@@ -1,0 +1,38 @@
+{
+  "name": "react-lifecycle",
+  "description": "Testing the React lifecycle",
+  "version": "1.0.0",
+  "author": "Ward Oosterlijnck",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV='development' webpack-dev-server --hot --open",
+    "build": "NODE_ENV='production' webpack -p",
+    "prestart": "npm run build",
+    "start": "serve build --single --cache 1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.2.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.5.4",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "serve": "^6.0.6"
+  }
+}
