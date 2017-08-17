@@ -4,7 +4,7 @@ import {Component} from '../core/logging'
 export default class ClassBasedComponent extends Component {
   render () {
     return (
-      <p>I am a class based component</p>
+      <p>I'm a class based component</p>
     )
   }
 }

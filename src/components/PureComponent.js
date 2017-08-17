@@ -7,28 +7,28 @@ export default class PureComponent extends LogPureComponent {
     this.state = {
       data: {
         name: 'pure component',
-        description: 'I am a pure component.'
+        description: 'I\'m a pure component.'
       }
     }
   }
   shouldComponentUpdate (nextProps, nextState) {
     this.cycleNum++
-    this.log('shouldComponentUpdate()')
+    this.log('shouldComponentUpdate(nextProps, nextState)')
 
     // NOTE: no difference between current and next state if the data object was mutated
-    // return this.desc.innerHTML !== nextState.data.description
-    return this.state.data !== nextState.data
+    return this.desc.innerHTML !== nextState.data.description
+    // return this.state.data !== nextState.data
   }
   updateDescription = () => {
     this.log('=> updateDescription')
 
     // NOTE: difference mutating an object in state or creating a new object and updating state
-    // const newData = this.state.data
-    // newData.description = 'I am also a class based component'
-    const newData = {
-      ...this.state.data,
-      description: 'I am also a class based component'
-    }
+    const newData = this.state.data
+    newData.description = 'I\'m also a class based component'
+    // const newData = {
+    //   ...this.state.data,
+    //   description: 'I am also a class based component'
+    // }
 
     this.setState({data: newData})
   }

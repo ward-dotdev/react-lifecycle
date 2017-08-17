@@ -5,7 +5,7 @@ const FunctionalComponent = props => {
   log('FunctionalComponent')
 
   return (
-    <p>I am a functional component</p>
+    <p>I'm a functional component</p>
   )
 }
 
