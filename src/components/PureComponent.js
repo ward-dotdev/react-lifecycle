@@ -1,6 +1,5 @@
 import React from 'react'
 import {PureComponent as LogPureComponent} from '../core/logging'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 export default class PureComponent extends LogPureComponent {
   constructor (props) {
@@ -13,19 +12,17 @@ export default class PureComponent extends LogPureComponent {
     }
   }
   shouldComponentUpdate (nextProps, nextState) {
+    this.cycleNum++
     this.log('shouldComponentUpdate()')
 
+    // NOTE: no difference between current and next state if the data object was mutated
     // return this.desc.innerHTML !== nextState.data.description
-
-    return PureRenderMixin.shouldComponentUpdate.bind(this)(nextProps, nextState)
-
-    // NOTE: no difference between current and next state because the data object was mutated
-    // console.log(this.state.data, nextState.data)
-    // return this.state.data.description !== nextState.data.description
+    return this.state.data !== nextState.data
   }
   updateDescription = () => {
     this.log('=> updateDescription')
 
+    // NOTE: difference mutating an object in state or creating a new object and updating state
     // const newData = this.state.data
     // newData.description = 'I am also a class based component'
     const newData = {

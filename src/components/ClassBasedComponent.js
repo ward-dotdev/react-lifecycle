@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {Component} from '../core/logging'
 
 export default class ClassBasedComponent extends Component {
   render () {

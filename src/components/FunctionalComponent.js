@@ -1,6 +1,9 @@
 import React from 'react'
+import {log} from '../core/logging'
 
 const FunctionalComponent = props => {
+  log('FunctionalComponent')
+
   return (
     <p>I am a functional component</p>
   )
