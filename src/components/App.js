@@ -45,7 +45,7 @@ export default class App extends Component {
 
     return (
       <div>
-        {/* <h1>React lifecycle</h1> */}
+        <h1>React lifecycle</h1>
         <button onClick={this.toggleContent}>
           Toggle content
         </button>

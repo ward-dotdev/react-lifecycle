@@ -16,8 +16,8 @@ export default class PureComponent extends LogPureComponent {
     this.log('shouldComponentUpdate(nextProps, nextState)')
 
     // NOTE: no difference between current and next state if the data object was mutated
-    return this.desc.innerHTML !== nextState.data.description
-    // return this.state.data !== nextState.data
+    // return this.desc.innerHTML !== nextState.data.description
+    return this.state.data !== nextState.data
   }
   updateDescription = () => {
     this.log('=> updateDescription')

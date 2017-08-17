@@ -2,11 +2,6 @@ import React from 'react'
 import {Component} from '../core/logging'
 
 export default class ComponentGallery extends Component {
-  setActive = i => {
-    this.log('=> setActive', i)
-
-    this.setState({active: i})
-  }
   render () {
     this.log('render')
 
