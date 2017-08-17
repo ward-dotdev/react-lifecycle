@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {Component} from '../core/logging'
 import ComponentGallery from './ComponentGallery'
 import FunctionalComponent from './FunctionalComponent'
 import ClassBasedComponent from './ClassBasedComponent'
@@ -10,41 +11,45 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      shownContent: 0
+      index: 0
     }
   }
   toggleContent = () => {
-    this.setState(({shownContent}) => {
+    this.log('=> toggleContent')
+
+    this.setState(({index}) => {
       return {
-        shownContent: shownContent < 2 ? shownContent + 1 : 0
+        index: index < 2 ? index + 1 : 0
       }
     })
   }
   renderContent (show) {
     switch (show) {
       case 0:
-        return <SongGallery />
-      case 1:
         return (
           <ComponentGallery>
             <FunctionalComponent />
             <ClassBasedComponent />
           </ComponentGallery>
         )
-      case 2:
+      case 1:
         return <PureComponent />
+      case 2:
+        return <SongGallery />
       default:
         return <p>No content to show</p>
     }
   }
   render () {
+    this.log('render()')
+
     return (
       <div>
-        <h1>React lifecycle</h1>
+        {/* <h1>React lifecycle</h1> */}
         <button onClick={this.toggleContent}>
           Toggle content
         </button>
-        {this.renderContent(this.state.shownContent)}
+        {this.renderContent(this.state.index)}
       </div>
     )
   }
