@@ -1,4 +1,5 @@
 # React Lifecycle
+An example to explore the React lifecycle
 
 ## Structure
 - `src/index.js` Renders root component `App`
