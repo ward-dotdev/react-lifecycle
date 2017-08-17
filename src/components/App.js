@@ -3,7 +3,6 @@ import {Component} from '../core/logging'
 import ComponentGallery from './ComponentGallery'
 import FunctionalComponent from './FunctionalComponent'
 import ClassBasedComponent from './ClassBasedComponent'
-import PureComponent from './PureComponent'
 import SongGallery from './SongGallery'
 
 export default class App extends Component {
@@ -33,8 +32,6 @@ export default class App extends Component {
           </ComponentGallery>
         )
       case 1:
-        return <PureComponent />
-      case 2:
         return <SongGallery />
       default:
         return <p>No content to show</p>

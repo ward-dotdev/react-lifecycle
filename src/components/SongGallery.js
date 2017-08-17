@@ -17,11 +17,9 @@ export default class SongGallery extends Component {
     this.log('componentDidMount()')
 
     fetchSongs().then(songs => {
-      this.log(`=> setSongs`, songs)
-
       this.setState({
         loading: false,
-        songs
+        songs: songs
       })
     })
   }

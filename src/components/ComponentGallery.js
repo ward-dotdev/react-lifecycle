@@ -3,7 +3,7 @@ import {Component} from '../core/logging'
 
 export default class ComponentGallery extends Component {
   render () {
-    this.log('render')
+    this.log('render()')
 
     const {children, ...rest} = this.props
 
