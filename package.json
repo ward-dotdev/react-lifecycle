@@ -5,7 +5,7 @@
   "author": "Ward Oosterlijnck",
   "license": "ISC",
   "scripts": {
-    "dev": "NODE_ENV='development' webpack-dev-server --hot --open",
+    "dev": "NODE_ENV='development' webpack-dev-server --open",
     "build": "NODE_ENV='production' webpack -p",
     "prestart": "npm run build",
     "start": "serve build --single --cache 1"
@@ -35,7 +35,6 @@
     "react": "^15.6.1",
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-dom": "^15.6.1",
-    "react-hot-loader": "^3.0.0-beta.7",
     "react-youtube": "^7.4.0"
   }
 }
